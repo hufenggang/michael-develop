@@ -1,4 +1,4 @@
-package cn.michael.develop.leetcode;
+package cn.michael.dev.java.leetcode;
 
 /**
  * Created by hufenggang on 2020/4/24.
