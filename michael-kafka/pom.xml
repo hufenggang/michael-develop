@@ -19,11 +19,6 @@
             <artifactId>kafka_${scala.binary.version}</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
