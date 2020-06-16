@@ -33,6 +33,7 @@
         <kafka.version>1.1.0</kafka.version>
         <flink.version>1.9.0</flink.version>
         <flink-connector-kafka_2.11.version>1.9.0</flink-connector-kafka_2.11.version>
+        <spark.version>2.4.3</spark.version>
     </properties>
 
     <dependencyManagement>
@@ -59,6 +60,28 @@
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka_${scala.binary.version}</artifactId>
                 <version>${kafka.version}</version>
+            </dependency>
+
+            <!-- Spark依赖 -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-hive_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- 引入Flink开发相关依赖 -->
