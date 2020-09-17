@@ -15,6 +15,7 @@
         <module>michael-kafka</module>
         <module>michael-spark</module>
         <module>michael-flink</module>
+        <module>michael-hive</module>
     </modules>
 
     <properties>
@@ -30,6 +31,8 @@
         <scala.binary.version>2.11</scala.binary.version>
         <maven.version>3.6.2</maven.version>
         <junit.version>4.12</junit.version>
+        <hadoop.version>2.8.5</hadoop.version>
+        <hive.version>3.1.1</hive.version>
         <kafka.version>1.1.0</kafka.version>
         <hbase.version>1.2.12</hbase.version>
         <flink.version>1.9.0</flink.version>
@@ -53,6 +56,22 @@
                 <groupId>org.scala-lang</groupId>
                 <artifactId>scala-library</artifactId>
                 <version>${scala.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Hadoop依赖 -->
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${hadoop.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Hive依赖 -->
+            <dependency>
+                <groupId>org.apache.hive</groupId>
+                <artifactId>hive-exec</artifactId>
+                <version>${hive.version}</version>
                 <scope>provided</scope>
             </dependency>
 
