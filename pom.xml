@@ -13,8 +13,6 @@
         <module>michael-scala</module>
         <module>michael-hbase</module>
         <module>michael-kafka</module>
-        <module>michael-spark</module>
-        <module>michael-flink</module>
         <module>michael-hive</module>
     </modules>
 
