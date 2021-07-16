@@ -14,7 +14,6 @@
         <module>michael-hbase</module>
         <module>michael-kafka</module>
         <module>michael-hive</module>
-        <module>michael-redis</module>
     </modules>
 
     <properties>
