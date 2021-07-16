@@ -9,35 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.michael.develop.spark</groupId>
-    <artifactId>michael-spark</artifactId>
+    <groupId>cn.michael.develop.redis</groupId>
+    <artifactId>michael-redis</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
     <dependencies>
-
-        <!-- scala -->
         <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Spark依赖 -->
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_${scala.binary.version}</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_${scala.binary.version}</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-hive_${scala.binary.version}</artifactId>
-            <scope>provided</scope>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
     </dependencies>
 
@@ -106,8 +90,9 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.version}</version>
+                <version>3.1.1</version>
                 <configuration>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -115,6 +100,7 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
