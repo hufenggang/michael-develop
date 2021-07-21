@@ -4,36 +4,14 @@ import java.util.Comparator;
 
 /**
  * Created by hufenggang on 2021/7/19.
- *
+ * <p>
  * 二叉搜索树
  */
 public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
 
-    /**
-     * 树节点
-     *
-     * @param <AnyType>
-     */
-    private static class BinaryNode<AnyType> {
-        AnyType element;
-        BinaryNode<AnyType> left;
-        BinaryNode<AnyType> right;
-
-        public BinaryNode(AnyType element) {
-            this(element, null, null);
-        }
-
-        public BinaryNode(AnyType element, BinaryNode<AnyType> left, BinaryNode<AnyType> right) {
-            this.element = element;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
+    private Comparator<? super AnyType> cmp;
     // 跟节点
     private BinaryNode<AnyType> root;
-    private Comparator<? super AnyType> cmp;
-
     public BinarySearchTree() {
         root = null;
     }
@@ -41,14 +19,6 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
     public BinarySearchTree(Comparator<? super AnyType> c) {
         root = null;
         cmp = c;
-    }
-
-    public void makeEmpty() {
-        root = null;
-    }
-
-    public boolean isEmpty() {
-        return root == null;
     }
 
     /**
@@ -59,6 +29,33 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
      */
     public boolean contains(AnyType x) {
         return contains(x, root);
+    }
+
+    public BinaryNode<AnyType> findMax() {
+        return findMax(root);
+    }
+
+    private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
+        // 首先判断是否为空
+        if (t != null) {
+            while (t.right != null) {
+                t = t.right;
+            }
+        }
+
+        return t;
+    }
+
+    public BinaryNode<AnyType> findMin() {
+        return findMin(root);
+    }
+
+    public boolean isEmpty() {
+        return root == null;
+    }
+
+    public void makeEmpty() {
+        root = null;
     }
 
     private boolean contains(AnyType x, BinaryNode<AnyType> t) {
@@ -80,10 +77,6 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
 
     }
 
-    public BinaryNode<AnyType> findMin() {
-        return findMin(root);
-    }
-
     private BinaryNode<AnyType> findMin(BinaryNode<AnyType> t) {
         // 首先判断是否为空
         if (t == null) {
@@ -95,18 +88,62 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         }
     }
 
-    public BinaryNode<AnyType> findMax() {
-        return findMax(root);
-    }
+    private BinaryNode<AnyType> insert(AnyType x, BinaryNode<AnyType> t) {
 
-    private BinaryNode<AnyType> findMax(BinaryNode<AnyType> t) {
-        // 首先判断是否为空
-        if (t != null) {
-            while (t.right != null) {
-                t = t.right;
-            }
+        if (t == null) {
+            return new BinaryNode<>(x, null, null);
+        }
+
+        int compareResult = x.compareTo(t.element);
+        if (compareResult < 0) {
+            t.left = insert(x, t.left);
+        } else if (compareResult > 0) {
+            t.right = insert(x, t.right);
+        } else {
+            // Nothing
         }
 
         return t;
+    }
+
+    private BinaryNode<AnyType> remove(AnyType x, BinaryNode<AnyType> t) {
+
+        if (t == null) {
+            return t;
+        }
+
+        int compareResult = x.compareTo(t.element);
+        if (compareResult < 0) {
+            t.left = remove(x, t.left);
+        } else if (compareResult > 0) {
+            t.right = insert(x, t.right);
+        } else if (t.left != null && t.right != null) {
+            t.element = findMin(t.right).element;
+            t.right = remove(t.element, t.right);
+        } else {
+            t = (t.left != null) ? t.left : t.right;
+        }
+        return t;
+    }
+
+    /**
+     * 树节点
+     *
+     * @param <AnyType>
+     */
+    private static class BinaryNode<AnyType> {
+        AnyType element;
+        BinaryNode<AnyType> left;
+        BinaryNode<AnyType> right;
+
+        public BinaryNode(AnyType element) {
+            this(element, null, null);
+        }
+
+        public BinaryNode(AnyType element, BinaryNode<AnyType> left, BinaryNode<AnyType> right) {
+            this.element = element;
+            this.left = left;
+            this.right = right;
+        }
     }
 }
