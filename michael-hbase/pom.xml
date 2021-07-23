@@ -11,6 +11,8 @@
 
     <groupId>cn.michael.develop.hbase</groupId>
     <artifactId>michael-hbase</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <!-- hbase -->

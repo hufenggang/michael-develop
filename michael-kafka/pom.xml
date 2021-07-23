@@ -11,6 +11,8 @@
 
     <groupId>cn.michael.develop.kafka</groupId>
     <artifactId>michael-kafka</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <!-- kafka -->

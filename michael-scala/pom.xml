@@ -11,6 +11,8 @@
 
     <groupId>cn.michael.develop.scala</groupId>
     <artifactId>michael-scala</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
 
 </project>

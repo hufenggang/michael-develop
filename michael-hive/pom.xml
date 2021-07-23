@@ -11,6 +11,8 @@
 
     <groupId>cn.michael.develop.hive</groupId>
     <artifactId>michael-hive</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
 
