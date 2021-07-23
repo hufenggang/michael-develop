@@ -12,6 +12,7 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
     private Comparator<? super AnyType> cmp;
     // 跟节点
     private BinaryNode<AnyType> root;
+
     public BinarySearchTree() {
         root = null;
     }
@@ -29,6 +30,34 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
      */
     public boolean contains(AnyType x) {
         return contains(x, root);
+    }
+
+    /**
+     * 思路：从跟节点开始遍历，如果比跟节点小，查找左子树，如果比跟节点大，查找右子树
+     *
+     * @param value
+     * @return
+     */
+    public BinaryNode<AnyType> find(AnyType value) {
+        if (root == null) {
+            return null;
+        }
+        BinaryNode<AnyType> current = root;
+
+        while (current.element != value) {
+            int compareResult = current.element.compareTo(value);
+            if (compareResult > 0) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+
+            if (current == null) {
+                return null;
+            }
+        }
+
+        return current;
     }
 
     public BinaryNode<AnyType> findMax() {
