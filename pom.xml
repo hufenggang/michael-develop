@@ -34,7 +34,7 @@
         <hive.version>3.1.1</hive.version>
         <kafka.version>1.1.0</kafka.version>
         <hbase.version>1.2.12</hbase.version>
-        <flink.version>1.9.0</flink.version>
+        <flink.version>1.9.2</flink.version>
         <flink-connector-kafka_2.11.version>1.9.0</flink-connector-kafka_2.11.version>
         <spark.version>2.4.3</spark.version>
     </properties>
