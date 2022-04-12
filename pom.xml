@@ -30,7 +30,7 @@
         <maven.version>3.6.2</maven.version>
         <junit.version>4.13.2</junit.version>
         <jedis.version>3.6.1</jedis.version>
-        <hadoop.version>2.8.5</hadoop.version>
+        <hadoop.version>3.2.3</hadoop.version>
         <hive.version>3.1.1</hive.version>
         <kafka.version>1.1.0</kafka.version>
         <hbase.version>1.2.12</hbase.version>
